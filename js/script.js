@@ -10,44 +10,62 @@ project 1 - A Random Quote Generator
 /***
  * `quotes` array
 ***/
-var array = [
+var quotes = [
 {
-  quote: 'test',
-  source: 'test',
-  citation: 'test',
+  quote: 'You only live as long as the last person who remembers you.',
+  source: 'Akecheta',
+  citation: 'Westworld',
 },
 {
-  quote: 'test',
-  source: 'test',
-  year: 'test',
+  quote: `I'm not a follower. I'm a leader. And anyone who speaks their mind is always criticized.`,
+  source: 'Tyler, the Creator',
+  year: 2013,
 },
 {
-  quote: 'test',
-  source: 'test',
+  quote: 'Live your life, live it right. Be different, do different things.',
+  source: 'Kendrick Lamar',
 },
 {
-  quote: 'test',
-  source: 'test',
+  quote: 'I think that inside every adult is the heart of a child. \
+  We just gradually convince ourselves that we have to act more like adults.',
+  source: 'Shigeru Miyamoto',
 },
 {
-  quote: 'test',
-  source: 'test',
+  quote: `We all live day to day completely oblivious to the fact \
+  that we're a part of a much larger and stranger reality than we can \
+  possibly imagine.` ,
+  source: 'Blake Crouch',
 }
 ];
-console.log(array[0]);
 
 /***
  * `getRandomQuote` function
 ***/
-
+function getRandomQuote() {
+const randomNumber = Math.floor( Math.random() * 5);
+const randomQuote = quotes[randomNumber];
+return randomQuote;
+};
 
 
 /***
  * `printQuote` function
 ***/
+function printQuote(){
+  let randomQuote = getRandomQuote();
+  let html = `<p class="quote">${randomQuote.quote}</p><p class="source">${randomQuote.source}`;
+  if (randomQuote.citation === 'Westworld'){
+    html += `<span class="citation">${randomQuote.citation}</span></p>`;
+  } else if (randomQuote.year === 2013){
+    html += `<span class="year">${randomQuote.year}</span></p>`;
+  } else{
+    html += `</p>`;
+  }
+return html;
+};
 
 
-
+document.getElementById('quote-box').innerHTML = printQuote(getRandomQuote());
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
