@@ -1,15 +1,4 @@
-/******************************************
-Treehouse FSJS Techdegree:
-project 1 - A Random Quote Generator
-******************************************/
-
-// For assistance:
-  // Check the "Project Resources" section of the project instructions
-  // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
-
-/***
- * `quotes` array
-***/
+//Created an array of 5 quotes containing quote, source, citation, and year properties.
 var quotes = [
 {
   quote: 'You only live as long as the last person who remembers you.',
@@ -38,19 +27,17 @@ var quotes = [
 }
 ];
 
-/***
- * `getRandomQuote` function
-***/
+//Generates a random quote by generating a random number into the array.
 function getRandomQuote() {
-const randomNumber = Math.floor( Math.random() * 5);
-const randomQuote = quotes[randomNumber];
-return randomQuote;
+  const randomNumber = Math.floor( Math.random() * 5);
+  const randomQuote = quotes[randomNumber];
+  return randomQuote;
 };
 
 
-/***
- * `printQuote` function
-***/
+/*Creates a string of HTML to print the quote and source.
+If an object contains a citation or year property they will print as well.
+If not, the object will print just the quote and source.*/
 function printQuote(){
   let randomQuote = getRandomQuote();
   let html = `<p class="quote">${randomQuote.quote}</p><p class="source">${randomQuote.source}`;
@@ -61,6 +48,7 @@ function printQuote(){
   } else{
     html += `</p>`;
   }
+  //Allows the page to generate a new quote when the button is clicked.
   document.getElementById('quote-box').innerHTML = html;
 return html;
 };
