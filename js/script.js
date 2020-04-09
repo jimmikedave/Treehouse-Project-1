@@ -28,13 +28,6 @@ var quotes = [
 }
 ];
 
-//Generates a random quote by generating a random number into the array.
-function getRandomQuote() {
-  const randomNumber = Math.floor( Math.random() * 5);
-  const randomQuote = quotes[randomNumber];
-  return randomQuote;
-};
-
 
 /*Creates a string of HTML to print the quote and source.
 If an object contains a citation, tags, or year property they will print as well.
@@ -56,6 +49,27 @@ function printQuote(){
 return html;
 };
 
+//Generates a random quote by generating a random number into the array.
+function getRandomQuote() {
+  const randomNumber = Math.floor( Math.random() * 5);
+  const randomQuote = quotes[randomNumber];
+  return randomQuote;
+};
+
+function randomRGB(){
+  return Math.floor(Math.random() * 256)
+}
+
+function randomColor(){
+  var color = `rgb( ${randomRGB()}, ${randomRGB()}, ${randomRGB()})`;
+  return color;
+}
+
+function change(){
+var colorChange = randomColor();
+document.body.style.backgroundColor = colorChange;
+return colorChange;
+}
 
 
 /***
@@ -64,3 +78,6 @@ return html;
 ***/
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
+
+//Uses the change function to load a new background color each time the button is "clicked"
+document.getElementById('load-quote').addEventListener("click", change, false);
