@@ -75,7 +75,8 @@ return colorChange;
 
 //Loads a new quote every 10 seconds.
 setInterval(printQuote, 10000);
-
+//Loads a new color every 10 seconds.
+setInterval(change, 10000);
 
 /***
  * click event listener for the print quote button
