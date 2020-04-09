@@ -49,6 +49,9 @@ function printQuote(){
 return html;
 };
 
+//Adds an interval to load a new quote every 15 secs
+setInterval(printQuote(), 15000);
+
 //Generates a random quote by generating a random number into the array.
 function getRandomQuote() {
   const randomNumber = Math.floor( Math.random() * 5);
