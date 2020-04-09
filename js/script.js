@@ -28,6 +28,13 @@ var quotes = [
 }
 ];
 
+//Generates a random quote by generating a random number into the array.
+function getRandomQuote() {
+  const randomNumber = Math.floor( Math.random() * 5);
+  const randomQuote = quotes[randomNumber];
+  return randomQuote;
+};
+
 
 /*Creates a string of HTML to print the quote and source.
 If an object contains a citation, tags, or year property they will print as well.
@@ -49,30 +56,25 @@ function printQuote(){
 return html;
 };
 
-//Adds an interval to load a new quote every 15 secs
-setInterval(printQuote(), 15000);
 
-//Generates a random quote by generating a random number into the array.
-function getRandomQuote() {
-  const randomNumber = Math.floor( Math.random() * 5);
-  const randomQuote = quotes[randomNumber];
-  return randomQuote;
-};
-
+//Creates a random number for the color scale.
 function randomRGB(){
   return Math.floor(Math.random() * 256)
 }
-
+//Creates a random color by selecting 3 random color settings.
 function randomColor(){
   var color = `rgb( ${randomRGB()}, ${randomRGB()}, ${randomRGB()})`;
   return color;
 }
-
+//Applies the random color to the background when called.
 function change(){
 var colorChange = randomColor();
 document.body.style.backgroundColor = colorChange;
 return colorChange;
 }
+
+//Loads a new quote every 10 seconds.
+setInterval(printQuote, 10000);
 
 
 /***
