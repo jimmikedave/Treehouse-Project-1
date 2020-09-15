@@ -87,3 +87,13 @@ document.getElementById('load-quote').addEventListener("click", printQuote, fals
 
 //Uses the change function to load a new background color each time the button is "clicked"
 document.getElementById('load-quote').addEventListener("click", change, false);
+
+///////////////////////////////////////////////////////////////////
+
+let i = 1;
+
+for(i = 0; i < 2; i ++){
+  console.log(i)
+}
+
+console.log(i)
